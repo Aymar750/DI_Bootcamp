@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+html{
+    overflow-x: hidden;
+}
+.box{
+    height: 450px;
+    position: relative;
+    margin-top: 25px;
+}
+.box1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 95%;
+    width: 90%;
+    transform: translate(-41%,-50%);
+}
+.card{
+    margin-top: 15px;
+    height: 90%;
+    width: 200px;
+    display: inline-block;
+    margin-left: 20px;
+}
+.img{
+    height: 70%;
+    width: 90%;
+    margin-left: 10px;
+    border-radius: 2px;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+}
+.sol_fea{
+    width: 90%;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%,-10%);
+}
+.solde{
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 13px;
+    margin-left: 75%;
+    text-align: center;
+    position: relative;
+    font-size: 10px;
+}
+
+.feature{
+    margin-top: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(29, 159, 55);
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 13px;
+    text-align: center;
+    position: relative;
+}
+.item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+.img1{
+    background-image: url(imgs/image1.png);
+}
+.img2{
+    background-image: url(imgs/image2.png);
+}
+.img3{
+    background-image: url(imgs/image3.png);
+}
+.img4{
+    background-image: url(imgs/image4.png);
+}
+.price{
+    text-align: center;
+    margin-top: 15px;
+    height: 30%;
+}
+.price p{
+    font-weight: lighter;
+    font-size: 16px;
+}
+.price h3{
+    color: green;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.bar{
+    color: black;
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 10px;
+}
+a{
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid rgb(73, 71, 71);
+    color:rgb(73, 71, 71) ;
+    font-weight: bold;
+}
