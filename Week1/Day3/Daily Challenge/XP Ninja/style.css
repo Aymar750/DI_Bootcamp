@@ -1,0 +1,106 @@
+body{
+    display: flex;
+    justify-content: center;
+   
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.exo1 ,.exo2,.exo3{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-gap: 2px;
+    border: 1px solid black;
+}
+
+.exo2,.exo3{
+    margin-top: 30px;
+}
+
+.box{
+    height: 30px;
+    width: 30px;
+    background-color: rgb(211, 211, 211);
+}
+.item{
+    height: 30px;
+    width: 30px;
+    background-color: rgb(207, 163, 82);
+}
+
+.item:nth-child(-3n+19),
+.item:nth-child(19) ~ div:nth-child(-3n+31),
+.item:nth-child(31) ~ div:nth-child(-3n+46),
+.item:nth-child(46) ~ div:nth-child(-3n+61),
+.item:nth-child(61) ~ div:nth-child(-3n+76),
+.item:nth-child(76) ~ div:nth-child(-3n+91),
+.item:nth-child(91) ~ div:nth-child(-3n+106),
+.item:nth-child(106) ~ div:nth-child(-3n+121),
+.item:nth-child(121) ~ div:nth-child(-3n+136),
+.item:nth-child(136) ~ div:nth-child(-3n+151),
+.item:nth-child(151) ~ div:nth-child(-3n+166),
+.item:nth-child(166) ~ div:nth-child(-3n+181),
+.item:nth-child(181) ~ div:nth-child(-3n+196),
+.item:nth-child(196) ~ div:nth-child(-3n+211),
+.item:nth-child(211) ~ div:nth-child(-3n+226),
+.item:nth-child(226) ~ div:nth-child(-3n+241), 
+.item:nth-child(241  ) ~ div:nth-child(-3n+256) 
+{
+  background-color: #f55600;
+  
+}
+
+.item:nth-child(-3n+18),
+.item:nth-child(18) ~ div:nth-child(-3n+30),
+.item:nth-child(30) ~ div:nth-child(-3n+45),
+.item:nth-child(45) ~ div:nth-child(-3n+60),
+.item:nth-child(60) ~ div:nth-child(-3n+75),
+.item:nth-child(75) ~ div:nth-child(-3n+90),
+.item:nth-child(90) ~ div:nth-child(-3n+105),
+.item:nth-child(105) ~ div:nth-child(-3n+120),
+.item:nth-child(120) ~ div:nth-child(-3n+135),
+.item:nth-child(135) ~ div:nth-child(-3n+150),
+.item:nth-child(150) ~ div:nth-child(-3n+165),
+.item:nth-child(165) ~ div:nth-child(-3n+180),
+.item:nth-child(180) ~ div:nth-child(-3n+195),
+.item:nth-child(195) ~ div:nth-child(-3n+210),
+.item:nth-child(210) ~ div:nth-child(-3n+225),
+.item:nth-child(225) ~ div:nth-child(-3n+240), 
+.item:nth-child(240 ) ~ div:nth-child(-3n+255) {
+    background-color: brown;
+}
+
+.box:nth-child(2n){
+    background-color: rgb(133, 132, 132);
+}
+.box:nth-child(4n){
+    background-color: rgb(0, 0, 0);
+}
+.box:nth-child(4n-1){
+    background-color: rgb(56, 54, 54);
+}
+.card{
+    height: 30px;
+    width: 30px;
+    background-color: rgb(243, 242, 241);
+}
+.card:nth-child(-2n+16),
+.card:nth-child(16) ~ div:nth-child(-2n+31),
+.card:nth-child(32) ~ div:nth-child(-2n+48),
+.card:nth-child(47) ~ div:nth-child(-2n+63),
+.card:nth-child(64) ~ div:nth-child(-2n+80),
+.card:nth-child(79) ~ div:nth-child(-2n+95),
+.card:nth-child(96) ~ div:nth-child(-2n+112),
+.card:nth-child(111) ~ div:nth-child(-2n+127),
+.card:nth-child(128) ~ div:nth-child(-2n+144){
+
+    background-color: rgb(239, 128, 128);
+}
+.card:nth-child(2n+18){
+    background-color: rgb(227, 57, 57);
+}
+
+
+

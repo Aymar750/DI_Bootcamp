@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    margin-top: 100px;
+    height:400px;
+    width: 70%;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box1,.box3{
+    height: 100%;
+    width: 100px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.box2{
+    height: 100px;
+    width: calc(100% - 300px);
+   
+    display: flex;
+    justify-content: space-around;
+
+}
+.case{
+    height: 80px;
+    width: 100px;
+    
+    background-color: yellow;
+}
+.two{
+    height: 100px;
+}
