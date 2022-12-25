@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+}
+.box{
+    margin: 5px;
+    width:483px;
+    height:298px;
+    background:#5d596c;
+    transition:all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box1{
+    opacity:0.5;
+}
+.box1:hover{
+    opacity:1;
+}
+.box2:hover
+{
+        background:#53a7ea;
+}
+.box3:hover
+{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+}
+.box4:hover
+{
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+}
+.box5:hover
+{
+        -webkit-transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+}
+.box6:hover
+{
+        border-radius:50%;
+}
+.box7:hover
+{
+        box-shadow:
+                1px 1px #53a7ea,
+                2px 2px #53a7ea,
+                3px 3px #53a7ea;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+}
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.box8:hover
+{
+        -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+}
+.box9:hover
+{
+        box-shadow: inset 0 0 0 25px #53a7ea;
+}
