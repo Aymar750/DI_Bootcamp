@@ -22,9 +22,9 @@ function playTheGame() {
     let computerNumber = Math.round(Math.random() * 10);
   
     // Compare the numbers and keep asking the user for a new number until they guess the computer's number or run out of chances
-    let chances = 3;
+    let chances = 2;
     while (chances > 0) {
-      if (userNumber == computerNumber) {
+     /* if (userNumber == computerNumber) {
         // If the user guessed the computer's number, display a message and exit the function
         alert("WINNER");
         return;
@@ -34,7 +34,8 @@ function playTheGame() {
       } else {
         // If the user's number is smaller than the computer's, ask the user for a new number
         userNumber = prompt("Your number is smaller than the computer's. Guess again:");
-      }
+      }*/
+      compareNumbers(userNumber, computerNumber);
   
       // Decrement the chances counter
       chances--;
@@ -44,17 +45,17 @@ function playTheGame() {
     alert("Out of chances");
 }
   
-  function compareNumbers(userNumber, computerNumber) {
+function compareNumbers(userNumber, computerNumber) {
     // Compare the user's number to the computer's number
     if (userNumber == computerNumber) {
       // If the numbers are equal, display a message and exit the function
       alert("WINNER");
     } else if (userNumber > computerNumber) {
       // If the user's number is bigger than the computer's, display a message
-      alert("Your number is bigger than the computer's");
+      userNumber = prompt("Your number is bigger than the computer's. Guess again:");
     } else {
       // If the user's number is smaller than the computer's, display a message
-      alert("Your number is smaller than the computer's");
+      userNumber = prompt("Your number is smaller than the computer's. Guess again:");
     }
 }
   
