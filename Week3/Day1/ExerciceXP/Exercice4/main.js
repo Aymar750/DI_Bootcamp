@@ -13,6 +13,7 @@ const allBooks = [
     }
 ];
 
+//to select the div 
 const listBooksDiv = document.querySelector('.listBooks');
 
 // Create the table element
