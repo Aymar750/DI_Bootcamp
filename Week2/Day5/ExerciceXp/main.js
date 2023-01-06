@@ -35,7 +35,7 @@ function playTheGame() {
         // If the user's number is smaller than the computer's, ask the user for a new number
         userNumber = prompt("Your number is smaller than the computer's. Guess again:");
       }*/
-      //compareNumbers(userNumber, computerNumber);
+      compareNumbers(userNumber, computerNumber);
   
       // Decrement the chances counter
       chances--;
