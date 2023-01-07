@@ -19,8 +19,10 @@ function addTask() {
   const listTasks = document.querySelector('.listTasks');
   const task = document.createElement('div');
   task.innerHTML = `
-    <input type="checkbox" data-task-id="${taskId - 1}"> ${document.getElementById('task').value}
-    <button class="delete-button">X</button>
+    <div class= "box">
+      <input type="checkbox" data-task-id="${taskId - 1}"> ${document.getElementById('task').value}
+      <button class="delete-button">X</button>
+    </div>
   `;
   listTasks.appendChild(task);
 
@@ -51,12 +53,6 @@ function doneTask(event) {
   }
 }
 
-document.querySelector('.listTasks').addEventListener('click', (event) => {
-  if (event.target.matches('input[type="checkbox"]')) {
-    doneTask(event);
-  }
-});
-
 function deleteTask(event) {
   // get the task_id of the clicked task
   const taskId = event.target.parentElement.querySelector('input[type="checkbox"]').dataset.taskId;
@@ -68,4 +64,11 @@ function deleteTask(event) {
   // remove the task from the DOM
   event.target.parentElement.remove();
 }
+document.querySelector('.listTasks').addEventListener('click', (event) => {
+  if (event.target.matches('input[type="checkbox"]')) {
+    doneTask(event);
+  }else if (event.target.classList.contains("delete-button")) {
+    deleteTask(event);
+  }
+});
 
