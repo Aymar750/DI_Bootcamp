@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  background: linear-gradient(#F00000, #DC281E);
+  background: linear-gradient(#f71f1f, #c91b12);
   font-family: sans-serif;
 } 
 ul {
@@ -78,7 +78,6 @@ input[type= "checkbox"]{
 }
   
 .item:last-child {
-margin-left: 10px;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
 }
@@ -102,6 +101,7 @@ margin-left: 10px;
   
   
 .checked { 
+  color: red;
   text-decoration: line-through;
 }
   

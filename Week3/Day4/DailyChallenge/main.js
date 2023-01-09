@@ -1,74 +1,86 @@
 const tasks = [];
-let taskId = 0;
 
-function addTask() {
-  // check that the input is not empty
-  if (document.getElementById('task').value === '') {
-    return;
+const addTask = () => {
+  // Get the task text from the input field
+  const taskText = document.getElementById('task').value;
+  
+  // Check if the input is not empty
+  if (taskText) {
+    // Create a new task object with a unique task_id, the task text, and a default value of false for the done property
+    const newTask = {
+      task_id: tasks.length,
+      text: taskText,
+      done: false
+    };
+    
+    // Add the new task to the tasks array
+    tasks.push(newTask);
+    
+    // Clear the input field
+    document.getElementById('task').value = '';
+    
+    // Add the task to the DOM
+    const taskList = document.querySelector('.listTasks');
+    taskList.innerHTML += `
+      
+        <div class= "box" data-task-id=${newTask.task_id}>
+            <button class="delete-button"><i class="fa fa-times"></i></button>
+            <input type="checkbox" id="task${newTask.task_id}"/>
+            <label for="task${newTask.task_id}">${newTask.text}</label>
+        </div>
+      
+    `;
   }
-
-  // add task object to the array
-  tasks.push({
-    task_id: taskId,
-    text: document.getElementById('task').value,
-    done: false
-  });
-  taskId++;
-
-  // add task to the DOM
-  const listTasks = document.querySelector('.listTasks');
-  const task = document.createElement('div');
-  task.innerHTML = `
-    <div class= "box">
-      <input type="checkbox" data-task-id="${taskId - 1}"> ${document.getElementById('task').value}
-      <button class="delete-button">X</button>
-    </div>
-  `;
-  listTasks.appendChild(task);
-
-  // clear the input field
-  document.getElementById('task').value = '';
 }
 
-document.getElementById('form').addEventListener('submit', (event) => {
-  event.preventDefault();
+const doneTask = (e) => {
+  // Get the task element that was clicked
+  const taskElement = e.target.parentNode;
+  
+  // Get the task_id of the task from the data-task-id attribute
+  const taskId = taskElement.getAttribute('data-task-id');
+
+  // Find the corresponding task in the tasks array
+  const task = tasks.find(task => task.task_id == taskId);
+  // Toggle the done property of the task
+  task.done = !task.done;
+  
+  // Update the task element in the DOM
+  if (task.done) {
+    taskElement.classList.add('checked');
+  } else {
+    taskElement.classList.remove('checked');
+  }
+}
+
+const deleteTask = (e) => {
+  // Get the task element that was clicked
+  const taskElement = e.target.parentNode;
+  
+  // Get the task_id of the task from the data-task-id attribute
+  const taskId = taskElement.getAttribute('data-task-id');
+  
+  // Find the index of the corresponding task in the tasks array
+  const taskIndex = tasks.findIndex(task => task.task_id == taskId);
+  
+  // Remove the task from the tasks array
+  tasks.splice(taskIndex, 1);
+  
+  // Remove the task element from the DOM
+  taskElement.remove();
+}
+
+// Add event listeners for the add, done, and delete buttons
+document.getElementById('form').addEventListener('submit', (e) => {
+  e.preventDefault();
   addTask();
 });
 
-function doneTask(event) {
-  // get the task_id of the clicked task
-  const taskId = event.target.dataset.taskId;
-
-  // find the task object in the array and update its done property
-  const task = tasks.find((task) => task.task_id == taskId);
-  task.done = !task.done;
-
-  // update the style of the task in the DOM
-  if (task.done) {
-    event.target.parentElement.style.textDecoration = 'line-through';
-    event.target.parentElement.style.color = 'red';
-  } else {
-    event.target.parentElement.style.textDecoration = 'none';
-    event.target.parentElement.style.color = 'black';
-  }
-}
-
-function deleteTask(event) {
-  // get the task_id of the clicked task
-  const taskId = event.target.parentElement.querySelector('input[type="checkbox"]').dataset.taskId;
-
-  // find the task object in the array and remove it
-  const taskIndex = tasks.findIndex((task) => task.task_id == taskId);
-  tasks.splice(taskIndex, 1);
-
-  // remove the task from the DOM
-  event.target.parentElement.remove();
-}
 document.querySelector('.listTasks').addEventListener('click', (event) => {
-  if (event.target.matches('input[type="checkbox"]')) {
-    doneTask(event);
-  }else if (event.target.classList.contains("delete-button")) {
-    deleteTask(event);
-  }
-});
+    if (event.target.matches('input[type="checkbox"]')) {
+      doneTask(event);
+    }else if (event.target.classList.contains("delete-button")) {
+      deleteTask(event);
+    }
+  });
 
