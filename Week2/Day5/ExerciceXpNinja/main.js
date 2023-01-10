@@ -1,58 +1,72 @@
-// Choose a word for the player to guess
-const word = "javascript";
+// player 1 input for word
+const word = prompt("Player 1, enter a word (minimum 8 letters)");
 
-// Set the number of chances the player has to guess the word
-let guessesLeft = 10;
+// check if word is valid (minimum 8 letters)
+if (word.length < 8) {
+  console.log("Word must have at least 8 letters");
+}
 
-// Create an array to store the letters the player has guessed
-let guessedLetters = [];
+// store the number of incorrect guesses left
+let chances = 10;
 
-// Create a flag to track whether the game is over
-let gameOver = false;
+// store the list of incorrect guesses
+let incorrectGuesses = [];
 
-// Define a function to display the word with correctly guessed letters
-function displayWord() {
+// store the correct guesses
+let correctGuesses = [];
+
+// create a display for the word using asterisks for unguessed letters
+let wordDisplay = "*".repeat(word.length);
+
+
+console.log(wordDisplay);
+
+
+while (chances > 0) {
+  // player 2 input for letter guess
+  const letter = prompt("Player 2, enter a letter");
+
+  // check if letter has already been guessed
+  if (incorrectGuesses.includes(letter)) {
+    console.log("You've already guessed that letter, try again");
+    chances--
+  }
+
+  // check if letter is in the word
+  if (word.includes(letter)) {
+    // update the correct guesses and word display
+    correctGuesses.push(letter);
+    wordDisplay = updateWordDisplay(word, correctGuesses);
+  } else {
+    // decrease the number of chances left and add the letter to incorrect guesses
+    chances--;
+    incorrectGuesses.push(letter);
+  }
+
+  console.log(wordDisplay);
+  console.log(`Incorrect Guesses: ${incorrectGuesses.join(", ")}`);
+  console.log(`Chances left: ${chances}`);
+
+  // check if all letters have been guessed
+  if (wordDisplay === word) {
+    console.log("CONGRATS YOU WIN!");
+    break;
+  }
+}
+
+if (chances === 0) {
+  console.log("YOU LOSE!");
+}
+
+// function to update the word display with correct guesses
+function updateWordDisplay(word, correctGuesses) {
   let display = "";
   for (let i = 0; i < word.length; i++) {
-    if (guessedLetters.includes(word[i])) {
+    if (correctGuesses.includes(word[i])) {
       display += word[i];
     } else {
-      display += "_";
+      display += "*";
     }
   }
-  console.log(display);
-}
-
-// Define a function to handle the player's guess
-function guessLetter(letter) {
-  // Add the letter to the array of guessed letters
-  guessedLetters.push(letter);
-
-  // Check if the letter is in the word
-  if (word.includes(letter)) {
-    console.log("Correct!");
-  } else {
-    console.log("Incorrect!");
-    guessesLeft--;
-  }
-
-  // Check if the player has run out of guesses or if they have guessed all the letters in the word
-  if (guessesLeft === 0 || !word.includes("_")) {
-    gameOver = true;
-  }
-}
-
-// Run the game loop as long as the game is not over
-while (!gameOver) {
-  console.log(`You have ${guessesLeft} guesses left.`);
-  displayWord();
-  let letter = prompt("Guess a letter:");
-  guessLetter(letter);
-}
-
-// Display a message to the player indicating whether they won or lost
-if (guessesLeft === 0) {
-  console.log("You lost! The word was: " + word);
-} else {
-  console.log("You won! The word was: " + word);
+  return display;
 }
